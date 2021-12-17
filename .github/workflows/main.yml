@@ -9,15 +9,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    # Checks out repository so your workflow can access it
     - uses: actions/checkout@v1
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
 
     - name: Set up Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v1
-
 
     - name: Build image and push to Docker Hub and GitHub Container Registry
       uses: docker/build-push-action@v2
@@ -28,5 +27,5 @@ jobs:
         tags: latest
         push: false
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
