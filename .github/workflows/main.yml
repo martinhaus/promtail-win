@@ -2,7 +2,7 @@ name: Build and Publish Docker Images after push to master branch
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build-and-deploy-to-azure:
